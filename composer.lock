@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db1c853c1f4403cf17679250733ae84e",
+    "content-hash": "537a7ef2df2284e53476602eb90210c4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -916,7 +916,7 @@
         },
         {
             "name": "niltonmorais/facebook-bot-sdk",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NiltonMorais/facebook-bot-sdk.git",
@@ -946,7 +946,7 @@
                 "MIT"
             ],
             "description": "Atividades do curso de ChatBot da CodeEducation",
-            "time": "2017-06-14 19:05:29"
+            "time": "2017-06-14T19:05:29+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3623,9 +3623,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "niltonmorais/facebook-bot-sdk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
