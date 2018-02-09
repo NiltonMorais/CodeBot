@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use CodeBot\CallSendApi;
 use CodeBot\Message\Text;
+use CodeBot\TemplatesMessage\ButtonsTemplate;
+use CodeBot\Element\Button;
 use CodeBot\SenderRequest;
 use CodeBot\WebHook;
 use Illuminate\Http\Request;
@@ -30,6 +32,13 @@ class BotController extends Controller
         $callSendApi = new CallSendApi(config('botfb.page_access_token'));
         $callSendApi->make($text->message('Oii, eu sou um bot..'));
         $callSendApi->make($text->message('Você digitou: '.$message));
+
+        $message = new ButtonsTemplate($senderId);
+        $message->add(new Button('web_url','CodeEducation','https://code.education'));
+        $message->add(new Button('web_url','Google','https://www.google.com.br'));
+
+        $callSendApi->make($message->message('Testando a abertura de um site'));
+
         return '';
     }
 }
