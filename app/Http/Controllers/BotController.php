@@ -10,6 +10,7 @@ use CodeBot\Element\Button;
 use CodeBot\Element\Product;
 use CodeBot\TemplatesMessage\GenericTemplate;
 use CodeBot\TemplatesMessage\ListTemplate;
+use CodeBot\Build\Solid;
 use Illuminate\Http\Request;
 
 class BotController extends Controller
@@ -29,25 +30,38 @@ class BotController extends Controller
         $sender = new SenderRequest;
         $senderId = $sender->getSenderId();
         $message = $sender->getMessage();
+        $postback = $sender->getPostback();
 
-        $text = new Text($senderId);
-        $callSendApi = new CallSendApi(config('botfb.page_access_token'));
-        $callSendApi->make($text->message('Oii, eu sou um bot..'));
-        $callSendApi->make($text->message('Você digitou: '.$message));
+        $bot = Solid::factory();
+        Solid::setPageAccessToken(config('botfb.page_access_token'));
+        Solid::setSenderId($senderId);
+
+        if($postback){
+            $bot->message('text', 'Você chamou o postback '.$postback);
+            return '';
+        }
+
+        $bot->message('text','Oi, eu sou um Bot ;)');
+        $bot->message('text','Você digitou: '.$message);
+
+        $bot->message('image','https://media.giphy.com/media/kEKcOWl8RMLde/giphy.gif');
+        $bot->message('audio','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        $bot->message('file','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
 
         $button1 = new Button('web_url', null, 'https://angular.io/');
         $button2 = new Button('web_url', null, 'https://vuejs.org/');
-        $product1 = new Product('Produto 1','https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png','Curso de Angular', $button1);
-        $product2 = new Product('Produto 2','https://vuejs.org/images/logo.png','Curso de VueJS', $button2);
-        $template = new GenericTemplate($senderId);
-        $template->add($product1);
-        $template->add($product2);
-        $callSendApi->make($template->message('qwe'));
 
-        $template = new ListTemplate($senderId);
-        $template->add($product1);
-        $template->add($product2);
-        $callSendApi->make($template->message('qwe'));
+        $buttons = [$button1,$button2];
+
+        $bot->template('buttons', 'Escolha um curso', $buttons);
+
+        $products = [
+            new Product('Produto 1','https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png','Curso de Angular', $button1),
+            new Product('Produto 2','https://vuejs.org/images/logo.png','Curso de VueJS', $button2),
+        ];
+
+        $bot->template('generic', '', $products);
+        $bot->template('list', '', $products);
 
         return '';
     }
