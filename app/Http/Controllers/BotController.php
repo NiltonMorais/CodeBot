@@ -37,6 +37,9 @@ class BotController extends Controller
         Solid::setSenderId($senderId);
 
         if($postback){
+            if(is_array($postback)){
+                $postback = json_encode($postback);
+            }
             $bot->message('text', 'Você chamou o postback '.$postback);
             return '';
         }
@@ -46,7 +49,6 @@ class BotController extends Controller
 
         $bot->message('image','https://media.giphy.com/media/kEKcOWl8RMLde/giphy.gif');
         $bot->message('audio','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
-        $bot->message('file','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
 
         $button1 = new Button('web_url', null, 'https://angular.io/');
         $button2 = new Button('web_url', null, 'https://vuejs.org/');
