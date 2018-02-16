@@ -923,16 +923,16 @@
         },
         {
             "name": "niltonmorais/facebook-bot-sdk",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NiltonMorais/facebook-bot-sdk.git",
-                "reference": "5b41cc23c173b771f35729dd77c487b83165cfda"
+                "reference": "0cf97a3ca0ee47a0a2416fa9a90c58cd160b971c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NiltonMorais/facebook-bot-sdk/zipball/5b41cc23c173b771f35729dd77c487b83165cfda",
-                "reference": "5b41cc23c173b771f35729dd77c487b83165cfda",
+                "url": "https://api.github.com/repos/NiltonMorais/facebook-bot-sdk/zipball/0cf97a3ca0ee47a0a2416fa9a90c58cd160b971c",
+                "reference": "0cf97a3ca0ee47a0a2416fa9a90c58cd160b971c",
                 "shasum": ""
             },
             "require": {
@@ -953,7 +953,7 @@
                 "MIT"
             ],
             "description": "Atividades do curso de ChatBot da CodeEducation",
-            "time": "2018-02-16T20:14:22+00:00"
+            "time": "2018-02-16T20:46:47+00:00"
         },
         {
             "name": "paragonie/random_compat",
