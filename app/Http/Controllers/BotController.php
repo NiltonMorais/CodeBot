@@ -37,7 +37,7 @@ class BotController extends Controller
 
         $button1 = new Button('web_url', null, 'https://angular.io/');
         $button2 = new Button('web_url', null, 'https://vuejs.org/');
-        $product1 = new Product('Produto 1','https://angular.io/assets/images/logos/angular/angular.svg','Curso de Angular', $button1);
+        $product1 = new Product('Produto 1','https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png','Curso de Angular', $button1);
         $product2 = new Product('Produto 2','https://vuejs.org/images/logo.png','Curso de VueJS', $button2);
         $template = new GenericTemplate($senderId);
         $template->add($product1);
