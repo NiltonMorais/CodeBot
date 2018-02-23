@@ -50,16 +50,26 @@ class BotController extends Controller
         $bot->message('image','https://media.giphy.com/media/kEKcOWl8RMLde/giphy.gif');
         $bot->message('audio','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
 
-        $button1 = new Button('web_url', null, 'https://angular.io/');
-        $button2 = new Button('web_url', null, 'https://vuejs.org/');
-
-        $buttons = [$button1,$button2];
+        $buttons = [
+            new Button('web_url', "Angular Js", 'https://angular.io/'),
+            new Button('web_url', "Vue Js", 'https://vuejs.org/')
+        ];
 
         $bot->template('buttons', 'Escolha um curso', $buttons);
 
         $products = [
-            new Product('Produto 1','https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png','Curso de Angular', $button1),
-            new Product('Produto 2','https://vuejs.org/images/logo.png','Curso de VueJS', $button2),
+            new Product(
+                'Produto 1',
+                'https://pluralsight.imgix.net/paths/path-icons/angular-14a0f6532f.png',
+                'Curso de Angular', 
+                new Button('web_url', null, 'https://angular.io/')
+            ),
+            new Product(
+                'Produto 2',
+                'https://vuejs.org/images/logo.png',
+                'Curso de VueJS', 
+                new Button('web_url', null, 'https://vuejs.org/')
+            ),
         ];
 
         $bot->template('generic', '', $products);
