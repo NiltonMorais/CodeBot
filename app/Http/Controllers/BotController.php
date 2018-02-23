@@ -47,7 +47,10 @@ class BotController extends Controller
         $bot->message('text','Oi, eu sou um Bot ;)');
         $bot->message('text','Você digitou: '.$message);
 
+        $bot->message('text','Agora um gif:');
         $bot->message('image','https://media.giphy.com/media/kEKcOWl8RMLde/giphy.gif');
+
+        $bot->message('text','Agora um audio:');
         $bot->message('audio','https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
 
         $buttons = [
@@ -55,6 +58,7 @@ class BotController extends Controller
             new Button('web_url', "Vue Js", 'https://vuejs.org/')
         ];
 
+        $bot->message('text','Agora botões:');
         $bot->template('buttons', 'Escolha um curso', $buttons);
 
         $products = [
@@ -72,7 +76,11 @@ class BotController extends Controller
             ),
         ];
 
+        $bot->message('text','Agora um GenericTemplate:');
         $bot->template('generic', '', $products);
+
+
+        $bot->message('text','Agora um GenericList:');
         $bot->template('list', '', $products);
 
         return '';
