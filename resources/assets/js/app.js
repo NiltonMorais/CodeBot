@@ -11,6 +11,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    template: '<div><router-view></router-view></div>',
+    template: '<div><router-view class="container"></router-view></div>',
     router
 });

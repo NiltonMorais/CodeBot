@@ -1,9 +1,35 @@
+// Material Icons
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+// Materialize CSS
+@import "node_modules/materialize-css/sass/components/color";
 
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Materialize CSS
+@import "node_modules/materialize-css/sass/materialize";
+
+body{
+  background-color: color('grey','lighten-4');
+}
+
+#app{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column
+}
+
+#main-nav{
+  a:hover, a:focus{
+    color: #fff;
+    text-decoration: none;
+  }
+}
+main{
+  flex: 1 0 auto
+}
+
+#sidenav-overlay {
+  z-index: 996 !important;
+}
